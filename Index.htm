@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<!-- Index.html Logan Infranca 12/11/2020 -->
+<!-- Tittle -->
+<title>Survey</title>
+
+<!-- Link picture with title-->
+<link rel="shortcut icon" href="icon.ico">
+
+
+<div id="wrapper">
+ <!-- The head with survey on it and scipt for navigating pages-->
+  <head> <font size="+2">Survey</font>
+  
+  <link rel="stylesheet" href="style.css"><!-- link css file -->
+    
+	<script>
+	//function to show wanted pages and hide pages not in use
+    function show(shown, hidden) {
+      document.getElementById(shown).style.display='block';
+      document.getElementById(hidden).style.display='none';
+      return false;
+    }
+	</script>
+  </head>
+  
+  <!-- First Page shown at the start but hidden when going to other pages -->
+  <div id="Page1">
+<p>Take this survey for a possible job in IT</p>
+  <body>
+  <form id="quiz">
+    <!-- Question 1 -->
+    <h2>Name</h2>
+
+    <tr><td></td><td><input type="text" id="name" name="name"></td></tr>
+
+    <!-- Question 2 -->
+    <h2>Age</h2>
+    <tr><td></td><td><input type="text" id="age" name="age"></td></tr>
+    
+    <!-- Question 3 -->
+    <h2>Email</h2>
+   
+    <tr><td></td><td><input type="text" id="email" name="email"></td></tr>
+    
+    <!-- Question 4 -->
+    <h2>Adress</h2>
+   
+   <tr><td></td><td><input type="text" id="address" name="address"></td></tr>
+   
+       <!-- Question 5 -->
+    <h2>Phone Number</h2>
+    
+   <tr><td></td><td><input type="text" id="phone" name="phone"></td></tr>
+   <br>
+   <br>
+	
+	</body>
+    
+	<!-- Button to go to page 2 -->
+    <button type="button" id="submit" onclick="return show('Page2','Page1');">Next</button>
+  </form>
+ 
+      </div>
+	  
+	  <!-- Seccond Page shown and other pages hidden -->
+	  <div id="Page2" style="display:none">
+<p>Take this survey for a possible job in IT</p>
+  <body>
+  <form id="quiz">
+    <!-- Question 6 -->
+    <h2>Experence?</h2>
+    
+    <tr><td></td><td><input type="text" id="q1" name="q1"></td></tr>
+
+    <!-- Question 7 -->
+    <h2>What specific type of languages have you been taught in?</h2>
+    <tr><td></td><td><input type="text" id="q2" name="q2"></td></tr>
+    
+    <!-- Question 8 -->
+    <h2>How do you feel about working with a team?</h2>
+   <tr><td></td><td><input type="text" id="q3" name="q3"></td></tr>
+    
+    <!-- Question 9 -->
+    <h2>Can you work on a project on your own if needed too?</h2>
+    <tr><td></td><td><input type="text" id="q4" name="q4"></td></tr>
+   
+       <!-- Question 10 -->
+    <h2>What made you want to come work for this company?</h2>
+   <tr><td></td><td><input type="text" id="q5" name="q5"></td></tr>
+   <br>
+   <br>
+	
+	</body>
+    
+	<!-- Button to go to Page 3 -->
+    <button type="button" id="submit" onclick="return show('Page3','Page2');">Next</button>
+	
+	<!-- Button to go to Page 1 -->
+	<button type="button" id="submit" onclick="return show('Page1','Page2');">Back</button>
+  </form>
+
+      </div>
+	  
+	  <!-- Thrird Page shown and other pages hidden -->
+	  <div id="Page3" style="display:none">
+  <p>Take this survey for a possible job in IT</p>
+  <body>
+  <form id="quiz" >
+
+	
+	<!-- Question 11 -->
+    <h2>Do you come to work just to work, or do you like to socialize along the way?</h2>
+   
+    <tr><td></td><td><input type="text" id="q6" name="q6"></td></tr>
+    
+    <!-- Question 12 -->
+    <h2>Tell me about a time when you were part of a team that was fun to work with. How did you balance productivity and fun with your co-workers?</h2>
+    
+   <tr><td></td><td><input type="text" id="q7" name="q7"></td></tr>
+   
+       <!-- Question 13 -->
+    <h2>How would you pitch this company to a friend?</h2>
+    
+   <tr><td></td><td><input type="text" id="q8" name="q8"></td></tr>
+   
+       <!-- Question 14 -->
+    <h2>Do you Smoke?</h2>
+
+	   <tr><td></td><td><input type="text" id="q9" name="q9"></td></tr>
+
+    <!-- Question 15 -->
+    <h2>Do you like company outings?</h2>
+     <tr><td></td><td><input type="text" id="q10" name="q10"></td></tr>
+
+   <br>
+   <br>
+	
+	</body>
+     <!-- Button to  initialize tabulateAnswers function and go to page 4-->
+    <button type="button" id="submit" onclick="tabulateAnswers(); alert('Now summiting your answers'); return show('Page4','Page3');">Summit</button>
+	
+	<!-- Button to go to Page 3 -->
+	<button type="button" id="submit" onclick="return show('Page2','Page3');">Back</button>
+  </form>
+
+      </div>
+	  <div id="Page4" style="display:none">
+	  <center>
+	  
+	  <!-- Add script.js and jquery -->
+	  <script src="script.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	  
+	  <script >
+	  
+	//Try to display text and if it cant display custom message
+	  try{
+	   document.open();
+      document.write("<h1>Thank You for the information!</h1>");
+      document.close();
+	  }
+	  catch{
+	  console.log("Coudnt Write to last Page!!");
+	  }
+	  
+	  
+	  var parsed = "";//parsed varible
+	  
+	  //create array with object in it
+      var Name1 = [{
+        name: Name,
+        email: Email,
+		address: Address,
+		phone: Phone,
+		Question1: q1,
+		Question2: q2,
+		Question3: q3,
+		Question4: q4,
+		Question5: q5,
+		Question6: q6,
+		Question7: q7,
+		Question8: q8,
+		Question9: q9,
+		Question10: q10	
+                }];
+				
+		//Display all objects in array
+		Name1.forEach(element => document.write(element, "  "));
+		
+		
+		
+	//Redefine variables for click to object details
+	Name = document.getElementById("name").value;
+		
+	Age = document.getElementById("age").value;
+	
+	Email = document.getElementById("email").value;
+	
+	Address = document.getElementById("address").value;
+		
+	Phone = document.getElementById("phone").value;
+		
+	q1 = document.getElementById("q1").value;
+		
+	q2 = document.getElementById("q2").value;
+		
+	q3 = document.getElementById("q3").value;
+		
+	q4 = document.getElementById("q4").value;
+		
+	q5 = document.getElementById("q5").value;
+		
+	q6 = document.getElementById('q6').value;
+		
+	q7 = document.getElementById('q7').value;
+		 
+	q8 = document.getElementById('q8').value;
+		
+	q9 = document.getElementById('q9').value;
+		
+	q10 = document.getElementById('q10').value;
+		
+	//function to write to document after click
+	$(document).on('click', '.icon-logo', function(event) {
+		document.write("Name: ",Name,"<br>"," Age: ",Age,"<br>", "Email: ",Email,"<br>", "Address: ",Address,"<br>","Phone: ",Phone,"<br>","Question 1: ",q1,"<br>",
+		"Question 2: ",q2,"<br>","Question 3: ",q3,"<br>","Question 4: ",q4,"<br>","Question 5: ",q5,"<br>","Question 6: ",q6,"<br>","Question 7: ",q7,"<br>",
+		"Question 8: ",q8,"<br>","Question 9: ",q9,"<br>","Question 10: ",q10);
+					
+});
+	  </script>
+	  
+	 <object data="images/logo.svg" type="image/svg+xml" id="hi" class="icon-logo" style="cursor: pointer;">	Click here to view your survey responses</object>
+
+	  </center>
+
+	  <div>
+	  
+	  
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
